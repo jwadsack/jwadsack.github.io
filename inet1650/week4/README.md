@@ -1,1 +1,0 @@
-# jwadsack.github.io
