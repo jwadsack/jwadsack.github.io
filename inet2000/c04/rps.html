@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>RPS Game</title>
+        <style type="text/css">
+        	body { 
+        		padding: 20px; 
+        		background-color: #ccc;
+        		font-family: arial;
+        	}
+        	#wrapper {
+        		width: 100%;
+        		border-radius: 5px;
+        		background-color: #fafafa;
+        	}
+        	#gameArea {
+        		padding: 10px;
+        	}
+        </style>
+	    <script>
+		    function rpsGame() {
+		    	var randomNumber = Math.floor(Math.random() * 3); // get a number between 0 and 2
+		    	var computerChoices = ['rock','paper','scissors']; // possible choices for computer
+		    	var computerChoice = computerChoices[randomNumber]; // use the random number select to pick a choice for the computer
+				var userChoice = prompt("Enter: rock, paper, scissors or quit"); // get answer from player
+				var results = '';
+				results = "Computer choice is <strong>: " + computerChoice + "</strong><br />";
+				results += "Your choice is <strong>: " + userChoice + "</strong><br />";
+				
+				
+				var winner = function(computerChoice, userChoice) {
+				
+				if (computerChoice==userChoice) {
+					return "The result is a tie!";
+				}
+    
+				if (computerChoice=="rock") {
+				
+					if (userChoice=="scissors") {
+					
+						return "rock wins";
+				}
+				
+				else {
+				
+					return "paper wins";
+					
+					}
+				}
+				
+				if (computerChoice=="paper") {
+				
+					if(userChoice=="rock") {
+				
+						return "paper wins";
+				
+				}
+				
+				else {
+				
+					return "scissors wins";
+					}
+					
+				}
+				
+				if (computerChoice=="scissors") {
+				
+					if (userChoice=="rock") {
+				
+						return "rock wins";
+				}
+				
+				else {
+				
+					return "scissors wins";
+					}
+				}
+				
+				};
+				
+				winner(computerChoice,userChoice);
+				
+				document.getElementById('gameOutput').innerHTML = results;
+		    }
+		</script>
+    </head>
+<body>
+	<div id="wrapper">
+		<div id="gameArea">
+			<h1>Rock,Paper, Scissors</h1>
+			<hr />
+			<button id="playButton" onclick="rpsGame();">Play Game</button> ( or just hit enter when you want to play )
+			<hr />
+			<div id="gameOutput"></div>
+    	</div>
+    </div>
+<script>
+	document.getElementById('playButton').focus();
+</script>
+</body>
+</html>
